@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throttling</title>
+</head>
+<body>
+    <h1>throttling</h1>
+    <input id="input" type="text">
+    <button onclick="handleclick(event)">Submit</button>
+    <script>
+        const input=document.getElementById('input');
+        let timer;
+        function handleclick(event){
+            clearTimeout(timer);
+            input.disabled=true;
+            event.target.disabled=true;
+            timer= setTimeout(()=>{
+                event.target.disabled=false;
+                input.disabled=false;
+                console.log(input.value)
+            },2000)
+            
+        }
+    </script>
+</body>
+</html>
